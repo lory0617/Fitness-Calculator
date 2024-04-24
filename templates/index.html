@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Fitness Calculator</h1>
+        <p>透過輸入您的基礎代謝率(BMR)、活動水平和體重,搭配您的運動經驗以及目標,來去計算出您每日所需攝取的熱量,以及建議的營養素分配</p>
+        <p>備註: TDEE（Total Daily Energy Expenditure，總日能量消耗量）是指一天內身體消耗的總能量。此計算僅為粗率估算,還需透過週期性(三到四週)紀錄觀察身體變化來做適當調整。</p>
+    </header>
+    <main>
+        <form action="/" method="POST">
+            <label for="bmr">基礎代謝率（BMR）：</label>
+            <input type="number" id="bmr" name="bmr" required><br><br>
+            
+            <label for="activity_level">活動水平：</label>
+            <select id="activity_level" name="activity_level">
+                <option value="sedentary">久坐</option>
+                <option value="lightly active">輕度活動</option>
+                <option value="moderately active">中度活動</option>
+                <option value="very active">非常活躍</option>
+                <option value="extremely active">極度活躍</option>
+            </select><br><br>
+
+            <label for="experience">健身經驗：</label>
+            <select id="experience" name="experience">
+                <option value="新手">新手</option>
+                <option value="老手">老手</option>
+            </select><br><br>
+
+            <label for="goal">目標：</label>
+            <select id="goal" name="goal">
+                <option value="增肌">增肌</option>
+                <option value="減脂">減脂</option>
+            </select><br><br>
+
+            <label for="weight">體重（公斤）：</label>
+            <input type="text" id="weight" name="weight" required><br><br>
+
+            <button type="submit">計算</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fitness Calculator</p>
+    </footer>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyC3LTKpMqyFKDACNI3II_bLxtih3p0DefQ",
+          authDomain: "fitness-calculator-3b393.firebaseapp.com",
+          projectId: "fitness-calculator-3b393",
+          storageBucket: "fitness-calculator-3b393.appspot.com",
+          messagingSenderId: "42620279439",
+          appId: "1:42620279439:web:43e66e0ca5b72b6480aefa",
+          measurementId: "G-EC533YE5KY"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+</html>

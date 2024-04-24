@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算結果</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Fitness Calculator</h1>
+        <h1>計算結果</h1>
+    </header>
+    <main>
+        
+        <p>您的TDEE是：{{ tdee }} kcal</p>
+        <p>您每天需要攝取的總熱量是：{{ total_calories }} kcal</p>
+        <p>蛋白質：{{ protein_min }} 克 至 {{ protein_max }} 克</p>
+        <p>脂肪：{{ fat_min }} 克 至 {{ fat_max }} 克</p>
+        <p>碳水化合物：{{ carbs }} 克</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fitness Calculator</p>
+    </footer>
+</body>
+</html>
