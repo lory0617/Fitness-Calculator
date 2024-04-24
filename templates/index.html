@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Calculator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .explanation {
+            text-align: center;
+            color: #333333;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,7 +24,17 @@
         <form action="/" method="POST">
             <label for="bmr">基礎代謝率（BMR）：</label>
             <input type="number" id="bmr" name="bmr" required><br><br>
-            
+        
+                <ul class="explanation">
+                    <p>活動水平:</p>
+                    <p>• sedentary（久坐）：辦公室工作或生活方式非常久坐的人，活動係數約為1.2。</p>
+                    <p>• lightly active（輕度活動）：輕度運動，每週1-3天，活動係數約為1.375。</p>
+                    <p>• moderately active（中度活動）：中度運動，每週3-5天，活動係數約為1.55。</p>
+                    <p>• very active（非常活動）：非常活躍，每週6-7天，活動係數約為1.725。</p>
+                    <p>• extremely active（極度活動）：極度活躍，每天進行高強度運動，活動係數約為1.9。</p>
+                    <p>⬇ ⬇ ⬇ ⬇ ⬇ 請開始填寫 ⬇ ⬇ ⬇ ⬇ ⬇</p>
+                </ul>
+
             <label for="activity_level">活動水平：</label>
             <select id="activity_level" name="activity_level">
                 <option value="sedentary">久坐</option>
