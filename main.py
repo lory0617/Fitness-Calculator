@@ -87,4 +87,4 @@ def calculate_macronutrients(total_calories, weight, goal):
     return protein_min, protein_max, fat_min, fat_max, carbs
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', debug=True)
+    app.run(debug=True)
