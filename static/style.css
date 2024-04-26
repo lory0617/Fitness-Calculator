@@ -18,7 +18,7 @@ main {
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
-    min-height: 1200px; /* 調整為您需要的高度值 */
+    min-height: 1800px; /* 調整為您需要的高度值 */
     overflow-y: auto; /* 在內容超出高度時顯示滾動條 */
 }
 
