@@ -8,16 +8,50 @@
 </head>
 <body>
     <header>
-        <h1>Fitness Calculator</h1>
         <h1>計算結果</h1>
+        <p>透過輸入您的基礎代謝率(BMR)、活動水平和體重,搭配您的運動經驗以及目標,來去計算出您每日所需攝取的熱量,以及建議的營養素分配</p>
+        <p>備註: TDEE（Total Daily Energy Expenditure，總日能量消耗量）是指一天內身體消耗的總能量。此計算僅為粗率估算,還需透過週期性(三到四週)紀錄觀察身體變化來做適當調整。</p>
     </header>
     <main>
-        
-        <p>您的TDEE是：{{ tdee }} kcal</p>
-        <p>您每天需要攝取的總熱量是：{{ total_calories }} kcal</p>
-        <p>蛋白質：{{ protein_min }} 克 至 {{ protein_max }} 克</p>
-        <p>脂肪：{{ fat_min }} 克 至 {{ fat_max }} 克</p>
-        <p>碳水化合物：{{ carbs }} 克</p>
+        <p>您每日所需攝取的總熱量(TDEE)：{{ tdee }} 卡路里</p>
+        <p>建議每日攝取的總熱量：{{ total_calories }} 卡路里</p>
+        <p>建議每日攝取的蛋白質：{{ protein_min }} - {{ protein_max }} 克</p>
+        <p>建議每日攝取的脂肪：{{ fat_min }} - {{ fat_max }} 克</p>
+        <p>建議每日攝取的碳水化合物：{{ carbs }} 克</p>
+
+        <h2>建議食物</h2>
+        <h3>蛋白質(每份100 g)</h3>
+        <ul>
+            {% for food, quantity in protein_foods.items() %}
+            {% if not loop.last %}
+            <li>{{ food }}: {{ quantity }} 份 ({{ food }}每100g 含有約{{ protein_content[food] }}g 蛋白質) 或</li>
+            {% else %}
+            <li>{{ food }}: {{ quantity }} 份 ({{ food }}每份含有約{{ protein_content[food] }}g 蛋白質)</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+        <h3>脂肪(每份10 g)</h3>
+        <ul>
+            {% for food, quantity in fat_foods.items() %}
+            {% if not loop.last %}
+            <li>{{ food }}: {{ quantity }} 份({{ food }}每10g 含有約{{ fat_content[food] }}g 脂肪) 或 </li>
+            {% else %}
+            <li>{{ food }}: {{ quantity }} 份 ({{ food }}每10g 含有約{{ fat_content[food] }}g 脂肪)</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+        <h3>碳水化合物(每份100 g)</h3>
+        <ul>
+            {% for food, quantity in carb_foods.items() %}
+            {% if not loop.last %}
+            <li>{{ food }}: {{ quantity }} 份({{ food }}每100g 含有約{{ carb_content[food] }}g 碳水化合物) 或 </li>
+            {% else %}
+            <li>{{ food }}: {{ quantity }} 份 ({{ food }}每100g 含有約{{ carb_content[food] }}g 碳水化合物)</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
     </main>
     <footer>
         <p>&copy; 2024 Fitness Calculator</p>
